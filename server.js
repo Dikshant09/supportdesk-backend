@@ -19,7 +19,7 @@ app.use(express.urlencoded({ extended: false }))
 // Parse json
 app.use(express.json());
 app.use(cors({
-    origin: 'https://support-desk-d5y5.onrender.com',
+    origin: process.env.REACT_FRONTEND_URL,
 }))
 
 // Routes
