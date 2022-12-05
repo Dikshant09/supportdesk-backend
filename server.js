@@ -32,6 +32,11 @@ app.use(express.json());
 // app.use(bodyParser.json({ extended: true }));
 // app.use(bodyParser.urlencoded({ extended: true }))
 
+app.get('/', (req, res) => {
+    res.send('<h1>Welcome to Support Desk API</h1>');
+})
+
+
 app.use(errorHandler);
 
 app.listen(port, () => {
