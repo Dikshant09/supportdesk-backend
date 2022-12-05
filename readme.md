@@ -4,6 +4,11 @@
 - In this one can create, view, close tickets, add notes and do all crud operations.
 - It’s authenticated by the JSON web token.
 
+**Live Link: <a href="https://support-desk-d5y5.onrender.com/">Support Desk</a>**
+
+<b>Frontend : </b>
+- [Frontend Repo](https://github.com/Dikshant09/supportdesk-frontend) 
+
 ## Requirements
 
 - Node v10+
@@ -29,9 +34,6 @@ JWT_SECRET = xxxxxx
 # Path of front-end implementation. 
 REACT_FRONTEND_URL = 'https://front_end_app_url.com'
 ```
-My frontend implementation
-- [Github](https://github.com/Dikshant09/supportdesk-frontend)
-- [Live](https://support-desk-d5y5.onrender.com/)
 
 2. Install dependencies and start the server
 
