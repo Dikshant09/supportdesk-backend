@@ -7,6 +7,7 @@ const colors = require('colors');
 const cors = require('cors');
 const userRoutes = require('./routes/userRoutes.js');
 const ticketRoutes = require('./routes/ticketRoutes.js');
+const staffRoutes = require('./routes/staffRoutes.js');
 const { errorHandler } = require('./middleware/errorMiddleware.js');
 
 // Connect to database
@@ -25,6 +26,7 @@ app.use(cors({
 // Routes
 app.use('/api/users', userRoutes);
 app.use('/api/tickets', ticketRoutes);
+app.use('/api/staff', staffRoutes);
 
 app.use(cors());
 app.use(express.json());

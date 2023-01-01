@@ -8,7 +8,7 @@ const jwt = require('jsonwebtoken');
 // @access public
 // POST request : we will fetch data from request.body
 const registerUser = asyncHandler(async (req, res, next) => {
-    const { name, email, password } = req.body;
+    const { name, email, password, isAdmin } = req.body;
 
     // Validation
     if (!name || !email || !password) {
@@ -39,7 +39,8 @@ const registerUser = asyncHandler(async (req, res, next) => {
     const user = new User({
         name,
         email,
-        password: hashedPassword
+        password: hashedPassword,
+        isAdmin
     });
 
     try {
@@ -50,9 +51,10 @@ const registerUser = asyncHandler(async (req, res, next) => {
             _id: user._id,
             name: user.name,
             email: user.email,
+            isAdmin: user.isAdmin,
             token: generateToken(user._id)
         })
-        console.log('User Created Successfully');
+        // console.log('User Created Successfully');
     } catch (error) {
         res.status(400);
         throw new Error('Invalid user data');
@@ -67,7 +69,7 @@ const loginUser = asyncHandler(async (req, res) => {
     const { email, password } = req.body;
     // console.log(req.body);
     const user = await User.findOne({ email: email });
-
+    
     // Checking user and it's password
     if (user && bcrypt.compareSync(password, user.password)) {
         res.status(200);
@@ -75,8 +77,10 @@ const loginUser = asyncHandler(async (req, res) => {
             _id: user._id,
             name: user.name,
             email: user.email,
+            isAdmin: user.isAdmin,
             token: generateToken(user._id)
         })
+        // console.log('User logged in Successfully');
     } else {
         res.status(401);
         throw new Error(`Invalid Credentials`);
@@ -93,6 +97,7 @@ const getMe = asyncHandler(async (req, res) => {
         name: req.user.name,
         email: req.user.email,
         id: req.user.id,
+        isAdmin: req.user.isAdmin
     }
     res.status(200).json(user);
 })
