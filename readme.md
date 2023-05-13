@@ -4,7 +4,7 @@
 - In this one can create, view, close tickets, add notes and do all crud operations.
 - It’s authenticated by the JSON web token.
 
-**Live Link: <a href="https://support-desk-d5y5.onrender.com/">Support Desk</a>**
+**Live Link: <a href="https://netliy-supportdesk-backend-production.up.railway.app/api/users/me">Support Desk API</a>**
 
 <b>Frontend : </b>
 - [Frontend Repo](https://github.com/Dikshant09/supportdesk-frontend) 
